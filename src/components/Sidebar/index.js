@@ -17,12 +17,12 @@ const Sidebar = ({isOpen, toggle}) => {
                         Services
                     </SidebarLink>
 
-                    <SidebarLink onClick={toggle} to="testimonials">
-                        Testimonials
-                    </SidebarLink>
-
                     <SidebarLink onClick={toggle} to="pricing">
                         Pricing
+                    </SidebarLink>
+
+                    <SidebarLink onClick={toggle} to="testimonials">
+                        Testimonials
                     </SidebarLink>
 
                     <SidebarLink onClick={toggle} to="signup">

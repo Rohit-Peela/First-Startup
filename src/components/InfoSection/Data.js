@@ -20,7 +20,7 @@ export const homeObjTwo = {
     lightBg:true,
     lightText: false,
     lightTextDesc: false,
-    topLine: 'Features',
+    topLine: 'Services',
     headline: 'What we offer',
     description: '<i class="fa fa-check-circle" aria-hidden="true"></i> University Shortlisting<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> University Application Filling<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> Scholarship Assist<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> Fast Loan Sanctioning<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> Loan Disbursement Assist<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> Visa Mock Interviews',
     buttonLabel: 'Learn More',

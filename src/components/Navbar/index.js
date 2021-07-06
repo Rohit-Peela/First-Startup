@@ -19,11 +19,11 @@ const Navbar = ({toggle}) => {
                             <NavLinks to="discover">Services</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to="testimonials">Testimonials</NavLinks>
-                        </NavItem>
-                        <NavItem>
                             <NavLinks to="pricing">Pricing</NavLinks>
                         </NavItem>
+                        <NavItem>
+                            <NavLinks to="testimonials">Testimonials</NavLinks>
+                        </NavItem>                        
                         <NavItem>
                             <NavLinks to="signup">Sign Up</NavLinks>
                         </NavItem>

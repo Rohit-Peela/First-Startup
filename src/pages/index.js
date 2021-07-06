@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import { homeObjOne, homeObjTwo } from '../components/InfoSection/Data';
 import Pricing from '../components/Pricing';
+import Testimonials from '../components/Testimonials';
 
 const Home = ({setWts, wts}) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +23,8 @@ const Home = ({setWts, wts}) => {
         <HeroSection/>
         <InfoSection {...homeObjOne}/>
         <InfoSection {...homeObjTwo}/>
+        <Pricing/>
+        <Testimonials/>
         <Pricing/>
         </>
     )
