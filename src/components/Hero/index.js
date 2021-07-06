@@ -21,7 +21,10 @@ const HeroSection = () => {
                     Sign Up immediately and sanction your loan as soon as possible without any hassle...
                 </HeroP>
                 <HeroBtnWrapper>
-                    <Button to='signup' onMouseEnter={onHover} onMouseLeave={onHover}>
+                    <Button to='signup' 
+                    onMouseEnter={onHover} 
+                    onMouseLeave={onHover}
+                    >
                         Get Started {hover ? <ArrowForward/> : <ArrowRight/>}
                     </Button>
                 </HeroBtnWrapper>

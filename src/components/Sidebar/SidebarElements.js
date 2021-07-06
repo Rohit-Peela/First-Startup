@@ -5,7 +5,7 @@ import {Link as LinkR} from 'react-router-dom';
 
 export const SidebarContainer = styled.aside`
     position: fixed;
-    z-index: 999;
+    z-index: 99;
     width: 100%;
     height: 100%;
     background: #0d0d0d;
