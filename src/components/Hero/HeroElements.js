@@ -10,6 +10,7 @@ export const HeroContainer = styled.div`
     height: 800px;
     position: relative;
     z-index: 1;
+
 `;
 
 export const HeroBg = styled.div`
@@ -43,7 +44,7 @@ export const HeroContent = styled.div`
 
 export const HeroH1 = styled.h1`
     color: black;
-    font-size: 48px;
+    font-size:48px;
     text-align: left;
 
     @media screen and (max-width: 768px) {
