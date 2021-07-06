@@ -33,7 +33,7 @@ export const TestimonialH1 = styled.h1`
 export default class Testimonials extends Component {
     render() {
         return (
-            <TestimonialContainer>
+            <TestimonialContainer id="testimonials">
                 <TestimonialH1>Testimonials</TestimonialH1>
                 <Carousel
                     showArrows={true}
@@ -49,7 +49,7 @@ export default class Testimonials extends Component {
                             <h3>Sanath Sayyaparaju</h3>
                             <h4>Incoming Masters in Finance student</h4>
                             <p>
-                                I really love how GradScholars helped me in sanctioning the loan, would definetely recomment anyone
+                                I really love how GradScholars helped me in sanctioning the loan, would definetely recommend anyone
                             </p>
                         </div>
                     </div>
