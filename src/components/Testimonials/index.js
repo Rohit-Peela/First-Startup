@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
+import Rotate from 'react-reveal/Rotate';
 import testimonial1 from '../../images/testimonial1.png';
 
 export const TestimonialContainer = styled.div`
@@ -34,7 +35,7 @@ export default class Testimonials extends Component {
     render() {
         return (
             <TestimonialContainer id="testimonials">
-                <TestimonialH1>Testimonials</TestimonialH1>
+                <Rotate bottom left><TestimonialH1>Testimonials</TestimonialH1></Rotate>
                 <Carousel
                     showArrows={true}
                     infiniteLoop={true}
