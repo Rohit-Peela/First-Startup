@@ -19,7 +19,7 @@ const InfoSection = ({lightBg, id, imgStart, topLine, lightText, headline, darkT
                             <Flip bottom><Heading lightText={lightText}>{headline}</Heading></Flip>
                             <Bounce bottom><Subtitle darkText={darkText} dangerouslySetInnerHTML={{ __html: description }}></Subtitle></Bounce>
                                 <BtnWrap>
-                                <Rotate bottom left><Button to='home'
+                                <Rotate bottom left><Button to='/signUp'
                                     smooth={true}
                                     duration={500}
                                     spy={true}

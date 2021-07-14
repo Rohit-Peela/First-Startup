@@ -3,7 +3,7 @@ import HeroSection from '../components/Hero';
 import InfoSection from '../components/InfoSection';
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
-import { homeObjOne, homeObjTwo } from '../components/InfoSection/Data';
+import { homeObjOne, homeObjTwo, homeObjThree } from '../components/InfoSection/Data';
 import Pricing from '../components/Pricing';
 import Testimonials from '../components/Testimonials';
 import Footer from '../components/Footer';
@@ -26,6 +26,7 @@ const Home = ({setWts, wts}) => {
         <InfoSection {...homeObjTwo}/>
         <Pricing/>
         <Testimonials/>
+        <InfoSection {...homeObjThree}/>
         <Footer/>
         </>
     )
