@@ -22,7 +22,7 @@ export const homeObjTwo = {
     lightTextDesc: false,
     topLine: 'Services',
     headline: 'What we offer',
-    description: '<i class="fa fa-check-circle" aria-hidden="true"></i> University Shortlisting<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> University Application Filling<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> Scholarship Assist<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> Fast Loan Sanctioning<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> Loan Disbursement Assist<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> Visa Mock Interviews',
+    description: '<i class="fa fa-check-circle" aria-hidden="true"></i> Helping choose loan<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> Processing Loan<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> Loan Negotiation Assistance<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> Loan Disbursement Assistance<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> Visa Documentation help<br/><br/><i class="fa fa-check-circle" aria-hidden="true"></i> Visa Mock Interviews',
     buttonLabel: 'Learn More',
     imgStart: false,
     img: require('../../images/svg-2.svg').default,

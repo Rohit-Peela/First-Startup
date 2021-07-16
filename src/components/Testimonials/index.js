@@ -4,6 +4,8 @@ import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
 import Rotate from 'react-reveal/Rotate';
 import testimonial1 from '../../images/testimonial1.png';
+import testimonial2 from '../../images/testimonial2.jpg';
+import testimonial3 from '../../images/testimonial3.jpg';
 
 export const TestimonialContainer = styled.div`
     height: 800px;
@@ -45,7 +47,7 @@ export default class Testimonials extends Component {
                     interval={6100}
                 >
                     <div>
-                        <img src="https://img-premium.flaticon.com/png/512/2202/premium/2202112.png?token=exp=1625584853~hmac=192a859f5750226f5e7919a25afe9b9e" />
+                        <img src={testimonial2} />
                         <div className="myCarousel">
                             <h3>Sanath Sayyaparaju</h3>
                             <h4>Incoming Masters in Finance student</h4>
@@ -56,7 +58,7 @@ export default class Testimonials extends Component {
                     </div>
 
                     <div>
-                        <img src="https://image.flaticon.com/icons/png/512/2922/2922561.png" />
+                        <img src={testimonial1} />
                         <div className="myCarousel">
                             <h3>Daniel Keystone</h3>
                             <h4>Incoming Grad Student</h4>
@@ -67,7 +69,7 @@ export default class Testimonials extends Component {
                     </div>
 
                     <div>
-                        <img src="https://image.flaticon.com/icons/png/512/949/949635.png" />
+                        <img src={testimonial3} />
                         <div className="myCarousel">
                             <h3>Theo Sorel</h3>
                             <h4>Incoming MBA student</h4>

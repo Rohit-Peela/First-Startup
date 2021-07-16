@@ -167,3 +167,31 @@
     border-radius: 50%;
   }
 }
+
+.some-page-wrapper {
+  margin: 15px;
+  margin-top: 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  /* flex: 1; */
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 800px) {
+  .column {
+    flex: 1;
+  }
+}

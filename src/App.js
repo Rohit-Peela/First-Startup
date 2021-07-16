@@ -1,7 +1,9 @@
 import './App.css';
 import React, {useState} from 'react';
-import {BrowserRouter as Router} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Home from './pages';
+import SignUp from './pages/signup';
+import Navbar from './components/Navbar';
 
 
 function App() {
@@ -9,7 +11,12 @@ function App() {
   const [wts, setWts] = useState(true);
   return (
     <Router>
-      <Home setWts={setWts}  wts={wts}/>
+      <Switch>
+        {/* <Route path="/" component={Home} setWts={setWts}  wts={wts} exact /> */}
+        <Route path="/" render={() => <Home setWts={setWts}  wts={wts}/>} exact />
+        <Route path="/signup" component={SignUp} exact />
+      </Switch>
+      {/* <Home setWts={setWts}  wts={wts}/> */}
       {
         wts 
         ? <a
