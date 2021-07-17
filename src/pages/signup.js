@@ -27,6 +27,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import {animateScroll as scroll} from 'react-scroll'
+import Documents from '../components/Documents';
 
 const theme = createMuiTheme({
     palette: {
@@ -125,7 +126,7 @@ const SignUp = () => {
             case 2:
                 return additionalDetails();
             case 3:
-                return 'This is the bit I really care about!';
+                return <div><Documents/></div>;
             default:
                 return 'Error and Unknown stepIndex';
         }
