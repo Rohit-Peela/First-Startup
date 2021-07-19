@@ -182,7 +182,10 @@ const Documents = () => {
                                             onChange={handleChange}
                                         />
                                     </Button>
-                                    <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("PA Card", "applicant_pan")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("PAN Card", "applicant_pan")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.applicant_pan? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_pan}</span>
+                                        </div> : <></>}
                                 </div>
                                 <NoteDialog open={open} handleClose={handleClose} fileNote={fileNote} setFileNote={setFileNote} name={noteName} id={noteId} />
                             </div>
@@ -209,6 +212,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Passport Photo", "applicant_passport_photo")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.applicant_passport_photo? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_passport_photo}</span>
+                                        </div> : <></>}
                                 </div>
                                
                             </div>
@@ -235,6 +241,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Aadhar Card Photo", "applicant_aadhar_card")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.applicant_aadhar_card? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_aadhar_card}</span>
+                                        </div> : <></>}
                                 </div>
                                 
                             </div>
@@ -261,6 +270,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Passport", "applicant_passport")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.applicant_passport? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_passport}</span>
+                                        </div> : <></>}
                                 </div>
                                 
                             </div>
@@ -287,6 +299,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("10th and 12th Certificates", "applicant_10th_12th")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.applicant_10th_12th? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_10th_12th}</span>
+                                        </div> : <></>}
                                 </div>
                                 
                             </div>
@@ -313,6 +328,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Bachelor's certificates", "applicant_bachelors_certificates")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.applicant_bachelors_certificates? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_bachelors_certificates}</span>
+                                        </div> : <></>}
                                 </div>
                             </div>
 
@@ -338,6 +356,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("University Admission Letter", "applicant_admission_letter")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.applicant_admission_letter? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_admission_letter}</span>
+                                        </div> : <></>}
                                 </div>
                             </div>
 
@@ -363,6 +384,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Experience Letter", "applicant_experience_letter")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.applicant_experience_letter? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_experience_letter}</span>
+                                        </div> : <></>}
                                 </div>
                             </div>
                         </div>
@@ -409,6 +433,9 @@ const Documents = () => {
                                             />
                                         </Button>
                                         <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("GRE Score Card", "applicant_gre")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                        {fileNote.applicant_gre? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_gre}</span>
+                                        </div> : <></>}
                                     </div>
                                 </div>
 
@@ -434,6 +461,9 @@ const Documents = () => {
                                             />
                                         </Button>
                                         <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("GMAT Score Card", "applicant_gmat")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                        {fileNote.applicant_gmat? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_gmat}</span>
+                                        </div> : <></>}
                                     </div>
                                 </div>
 
@@ -459,6 +489,9 @@ const Documents = () => {
                                             />
                                         </Button>
                                         <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("SAT Score Card", "applicant_sat")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                        {fileNote.applicant_sat? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_sat}</span>
+                                        </div> : <></>}
                                     </div>
                                 </div>
 
@@ -484,6 +517,9 @@ const Documents = () => {
                                             />
                                         </Button>
                                         <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("ACT Score Card", "applicant_act")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                        {fileNote.applicant_act? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_act}</span>
+                                        </div> : <></>}
                                     </div>
                                 </div>
 
@@ -520,6 +556,9 @@ const Documents = () => {
                                             />
                                         </Button>
                                         <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("TOEFL Score Card", "applicant_toefl")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                        {fileNote.applicant_toefl? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_toefl}</span>
+                                        </div> : <></>}
                                     </div>
                                 </div>
 
@@ -545,6 +584,9 @@ const Documents = () => {
                                             />
                                         </Button>
                                         <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("IELTS Score Card", "applicant_ielts")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                        {fileNote.applicant_ielts? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_ielts}</span>
+                                        </div> : <></>}
                                     </div>
                                 </div>
 
@@ -570,6 +612,9 @@ const Documents = () => {
                                             />
                                         </Button>
                                         <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("PTE Score Card", "applicant_pte")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                        {fileNote.applicant_pte? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.applicant_pte}</span>
+                                        </div> : <></>}
                                     </div>
                                 </div>
 
@@ -612,6 +657,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Co-Applicant Passport Size photo", "co_applicant_passport_photo")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.co_applicant_passport_photo? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.co_applicant_passport_photo}</span>
+                                        </div> : <></>}
                                 </div>
                             </div>
 
@@ -637,6 +685,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Co-Applicant PAN Card", "co_applicant_pan")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.co_applicant_pan? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.co_applicant_pan}</span>
+                                        </div> : <></>}
                                 </div>
                             </div>
 
@@ -662,6 +713,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Co-Applicant Aadhar Card", "co_applicant_aadhar_card")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.co_applicant_aadhar_card? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.co_applicant_aadhar_card}</span>
+                                        </div> : <></>}
                                 </div>
                             </div>
 
@@ -697,6 +751,9 @@ const Documents = () => {
                                             />
                                         </Button>
                                         <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Salaried Bank statement(6 months)", "co_applicant_salaried_bankstatement")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                        {fileNote.co_applicant_salaried_bankstatement? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.co_applicant_salaried_bankstatement}</span>
+                                        </div> : <></>}
                                     </div>
                                 </div>
 
@@ -722,6 +779,9 @@ const Documents = () => {
                                             />
                                         </Button>
                                         <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Latest 3 months Salary Slips", "co_applicant_salary_slips")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                        {fileNote.co_applicant_salary_slips? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.co_applicant_salary_slips}</span>
+                                        </div> : <></>}
                                     </div>
                                 </div>
 
@@ -747,6 +807,9 @@ const Documents = () => {
                                             />
                                         </Button>
                                         <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Latest 2 years ITR/Form-16", "co_applicant_salaried_itr")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                        {fileNote.co_applicant_salaried_itr? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.co_applicant_salaried_itr}</span>
+                                        </div> : <></>}
                                     </div>
                                 </div>
 
@@ -783,6 +846,9 @@ const Documents = () => {
                                             />
                                         </Button>
                                         <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Saving Account Bank statement(6 months)", "co_applicant_savings_bankstatement")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                        {fileNote.co_applicant_savings_bankstatement? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.co_applicant_savings_bankstatement}</span>
+                                        </div> : <></>}
                                     </div>
                                 </div>
 
@@ -808,6 +874,9 @@ const Documents = () => {
                                             />
                                         </Button>
                                         <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Self-Employed Business Proof", "co_applicant_self_employed_proof")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                        {fileNote.co_applicant_self_employed_proof? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.co_applicant_self_employed_proof}</span>
+                                        </div> : <></>}
                                     </div>
                                 </div>
 
@@ -833,6 +902,9 @@ const Documents = () => {
                                             />
                                         </Button>
                                         <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Latest 2 years ITR", "co_applicant_self_employed_itr")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                        {fileNote.co_applicant_self_employed_itr? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.co_applicant_self_employed_itr}</span>
+                                        </div> : <></>}
                                     </div>
                                 </div>
 
@@ -874,6 +946,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Father Passport Size Photo", "father_passport_photo")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.father_passport_photo? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.father_passport_photo}</span>
+                                        </div> : <></>}
                                 </div>
                             </div>
 
@@ -899,6 +974,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Father Pan Card", "father_pan_card")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.father_pan_card? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.father_pan_card}</span>
+                                        </div> : <></>}
                                 </div>
                             </div>
 
@@ -924,6 +1002,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Father Aadhar Card", "father_aadhar_card")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.father_aadhar_card? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.father_aadhar_card}</span>
+                                        </div> : <></>}
                                 </div>
                             </div>
                         </div>
@@ -962,6 +1043,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Mother Passport Size Photo", "mother_passport_photo")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.mother_passport_photo? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.mother_passport_photo}</span>
+                                        </div> : <></>}
                                 </div>
                             </div>
 
@@ -987,6 +1071,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Mother Pan Card", "mother_pan_card")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.mother_pan_card? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.mother_pan_card}</span>
+                                        </div> : <></>}
                                 </div>
                             </div>
 
@@ -1012,6 +1099,9 @@ const Documents = () => {
                                         />
                                     </Button>
                                     <Tooltip title="Add a note for this file"><Button onClick={() => handleClickOpen("Mother Aadhar Card", "mother_aadhar_card")} style={{ width: "150px", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}><i class="fa fa-sticky-note" aria-hidden="true"></i></Button></Tooltip>
+                                    {fileNote.mother_aadhar_card? <div style={{ textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>
+                                        Note: <span style={{ maxWidth: "250px", overflow:"auto", textAlign: "center", margin: "auto", display: "block", marginBottom: "20px" }}>{fileNote.mother_aadhar_card}</span>
+                                        </div> : <></>}
                                 </div>
                             </div>
                         </div>
