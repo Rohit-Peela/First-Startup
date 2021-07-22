@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import Footer from '../components/Footer';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
@@ -26,8 +26,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import {animateScroll as scroll} from 'react-scroll'
+import { animateScroll as scroll } from 'react-scroll'
 import Documents from '../components/Documents';
+import { register } from 'react-scroll/modules/mixins/scroller';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup'
+import firebase from '../../src/firebase';
+import { first } from 'lodash';
 
 const theme = createMuiTheme({
     palette: {
@@ -75,6 +80,8 @@ const SignUp = () => {
     const [loanType, setLoanType] = React.useState('');
     const [info, setInfo] = React.useState('');
     const [intake, setIntake] = React.useState('');
+    const [otp, setOtp] = React.useState();
+    const formRef = useRef();
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
@@ -82,6 +89,7 @@ const SignUp = () => {
 
     const handleNext = () => {
         scroll.scrollToTop();
+        console.log(initialValues);
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
 
@@ -126,58 +134,191 @@ const SignUp = () => {
             case 2:
                 return additionalDetails();
             case 3:
-                return <div><Documents/></div>;
+                return <div><Documents /></div>;
             default:
                 return 'Error and Unknown stepIndex';
         }
     }
 
+    // useEffect(() => {
+    //     setUpRecaptcha();
+    // }, [])
+
+    const initialValues = {
+        //firstName:'',
+        applicant_data: {
+            firstName: '',
+            lastName: '',
+            mailId: '',
+            referalCode: '',
+            phoneNumber: '',
+            otp: ''
+        }
+    }
+
+    const validationSchema = Yup.object().shape({
+        applicant_data: Yup.object().shape({
+            firstName: Yup.string().typeError("Enter valid First Name").min(2, "Too Short!").required("*First Name is Required"),
+            lastName: Yup.string().typeError("Enter valid Last Name").min(2, "Too Short!").required("*Last Name is Required"),
+            mailId: Yup.string().email("Please Enter a valid email").required("*E-mail is Required"),
+            phoneNumber: Yup.number().typeError("Enter valid Phone number").min(10, "Phone number too short!").required("*Phone number is required"),
+            otp: Yup.number().typeError("Enter valid OTP").required("*OTP is required"),
+        })
+    })
+
+    const onSubmit = (value, props,event) => {
+        event.preventDefault();
+        if (activeStep == 0) {
+            console.log('zero active step');
+            const code = formRef.current.values.applicant_data.otp;
+            console.log("otp is", code);
+            window.confirmationResult.confirm(697475).then((result) => {
+                // User signed in successfully.
+                const user = result.user;
+                console.log("user signed in!!!", JSON.stringify(user));
+                // ...
+            }).catch((error) => {
+                // User couldn't sign in (bad verification code?)
+                // ...
+                console.log('user not signed');
+                return;
+            });
+        }
+        console.log(value);
+        const sendToFirebase = firebase.database().ref("users");
+        // const todo = {
+        //     complete: true,
+        //     date: new Date(),
+        // }
+        sendToFirebase.push(value.applicant_data);
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
+
+    const setUpRecaptcha = () => {
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+            'size': 'invisible',
+            'callback': (response) => {
+                // reCAPTCHA solved, allow signInWithPhoneNumber.
+                onSignInSubmit();
+                console.log('re-captcha verified');
+            },
+            defaultCountry: "IN"
+        });
+    }
+
+
+
+    const onSignInSubmit = (event) => {
+        event.preventDefault();
+        console.log(formRef);
+        setUpRecaptcha();
+        const phoneNumber = formRef.current.values.applicant_data.phoneNumber;
+        const appVerifier = window.recaptchaVerifier;
+        console.log("phone number given", phoneNumber);
+        firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+            .then((confirmationResult) => {
+                console.log("Sent otp");
+                // SMS sent. Prompt user to type the code from the message, then sign the
+                // user in with confirmationResult.confirm(code).
+                window.confirmationResult = confirmationResult;
+
+                // ...
+            }).catch((error) => {
+                // Error; SMS not sent
+                // ...
+            });
+    }
+
     function primaryDeatils() {
         return (
+            <Formik initialValues={initialValues} innerRef={formRef} validationSchema={validationSchema} onSubmit={onSubmit}>
+                {(props) => (
+                    <Form>
+                        {console.log(props)}
+                        <div id="recaptcha-container"></div>
+                        <div class='some-page-wrapper'>
+                            <div class='row'>
+                                <div class='column'>
+                                    {props.values.firstName}
+                                    <Field as={TextField} id="standard-basic" name="applicant_data.firstName" label="First Name"
+                                        value={props.values.applicant_data.firstName}
+                                        onChange={props.handleChange}
+                                        error={(props.errors.applicant_data ? (props.errors.applicant_data.firstName ? true : false) : false)}
+                                        helperText={<ErrorMessage name="applicant_data.firstName">{msg => <div style={{ color: "red" }}>{msg}</div>}</ErrorMessage>} />
+                                </div>
+                                <div class='column'>
+                                    <Field as={TextField} id="standard-basic" name="applicant_data.lastName" label="Last Name"
+                                        value={props.values.applicant_data.lastName}
+                                        onChange={props.handleChange}
+                                        // error={props.errors.applicant_data.lastName && props.touched.applicant_data.lastName}
+                                        helperText={<ErrorMessage name="applicant_data.lastName">{msg => <div style={{ color: "red" }}>{msg}</div>}</ErrorMessage>} />
+                                </div>
+                            </div>
 
+                            <div class='row'>
+                                <div class='column'>
+                                    <Field as={TextField} id="standard-basic" type="Email" name="applicant_data.mailId" label="Mail Id"
+                                        value={props.values.applicant_data.mailId}
+                                        onChange={props.handleChange}
+                                        // error={props.errors.applicant_data.mailId && props.touched.applicant_data.mailId}
+                                        helperText={<ErrorMessage name="applicant_data.mailId">{msg => <div style={{ color: "red" }}>{msg}</div>}</ErrorMessage>} />
+                                </div>
+                                <div class='column'>
+                                    <Field as={TextField} id="standard-basic" name="applicant_data.referalCode" label="Referal Code(Optional)"
+                                        value={props.values.applicant_data.referalCode}
+                                        onChange={props.handleChange} />
+                                </div>
+                            </div>
 
-            <div class='some-page-wrapper'>
-                <div class='row'>
-                    <div class='column'>
-                        <TextField id="standard-basic" label="First Name" />
-                    </div>
-                    <div class='column'>
-                        <TextField id="standard-basic" label="Last Name" />
-                    </div>
-                </div>
+                            <div class='row'>
+                                <div class='column'>
+                                    <MuiPhoneNumber
+                                        name="applicant_data.phoneNumber"
+                                        label="Phone Number"
+                                        data-cy="user-phone"
+                                        autoFormat={false}
+                                        value={props.values.applicant_data.phoneNumber}
+                                        onChange={e => props.setFieldValue("applicant_data.phoneNumber", e)}
+                                        // error={props.errors.applicant_data.phoneNumber && props.touched.applicant_data.phoneNumber}
+                                        defaultCountry={"in"}
+                                        helperText={<ErrorMessage name="applicant_data.phoneNumber">{msg => <div style={{ color: "red" }}>{msg}</div>}</ErrorMessage>}
 
-                <div class='row'>
-                    <div class='column'>
-                        <TextField id="standard-basic" label="Mail Id" />
-                    </div>
-                    <div class='column'>
-                        <TextField id="standard-basic" label="Referal Code(Optional)" />
-                    </div>
-                </div>
+                                    />
+                                </div>
+                                <div class='column' style={{ marginTop: "30px" }}>
+                                    <Button id="" onClick={onSignInSubmit} variant="contained" color="primary">Generate Otp</Button>
+                                </div>
+                            </div>
 
-                <div class='row'>
-                    <div class='column'>
-                        <MuiPhoneNumber
-                            name="phone"
-                            label="Phone Number"
-                            data-cy="user-phone"
-                            defaultCountry={"in"}
+                            <div class='row'>
+                                <div class='column'>
+                                    <Field as={TextField} value={props.values.applicant_data.otp}
+                                        onChange={props.handleChange}
+                                        helperText={<ErrorMessage name="applicant_data.otp">{msg => <div style={{ color: "red" }}>{msg}</div>}</ErrorMessage>}
+                                        name="applicant_data.otp"
+                                        //  error={props.errors.applicant_data.otp && props.touched.applicant_data.otp}
+                                        id="standard-basic" label="OTP" />
+                                </div>
+                                <div class='column'>
+                                </div>
+                            </div>
 
-                        />
-                    </div>
-                    <div class='column' style={{ marginTop: "30px" }}>
-                        <Button variant="contained" color="primary">Generate Otp</Button>
-                    </div>
-                </div>
-
-                <div class='row'>
-                    <div class='column'>
-                        <TextField id="standard-basic" label="OTP" />
-                    </div>
-                    <div class='column'>
-                    </div>
-                </div>
-            </div>
+                            <div style={{ padding: "20px" }}>
+                                <Button
+                                    disabled={activeStep === 0}
+                                    onClick={handleBack}
+                                    className={classes.backButton}
+                                >
+                                    Back
+                                </Button>
+                                <Button type="submit" style={{ float: "right" }} variant="contained" color="primary" >
+                                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                                </Button>
+                            </div>
+                        </div>
+                    </Form>
+                )}
+            </Formik>
         )
     }
 
@@ -460,7 +601,7 @@ const SignUp = () => {
                         ) : (
                             <div>
                                 <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-                                <div style={{padding:"20px"}}>
+                                {/* <div style={{ padding: "20px" }}>
                                     <Button
                                         disabled={activeStep === 0}
                                         onClick={handleBack}
@@ -468,10 +609,10 @@ const SignUp = () => {
                                     >
                                         Back
                                     </Button>
-                                    <Button style={{ float: "right" }} variant="contained" color="primary" onClick={handleNext}>
+                                    <Button type="submit" style={{ float: "right" }} variant="contained" color="primary" onClick={handleNext}>
                                         {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                                     </Button>
-                                </div>
+                                </div> */}
 
 
                             </div>
