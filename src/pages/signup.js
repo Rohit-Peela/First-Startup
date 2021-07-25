@@ -166,13 +166,14 @@ const SignUp = () => {
         })
     })
 
-    const onSubmit = (value, props,event) => {
-        event.preventDefault();
+    const onSubmit = (value, props) => {
+        //event.preventDefault();
+        //props.event.preventDefault();
         if (activeStep == 0) {
             console.log('zero active step');
             const code = formRef.current.values.applicant_data.otp;
             console.log("otp is", code);
-            window.confirmationResult.confirm(697475).then((result) => {
+            window.confirmationResult.confirm(code).then((result) => {
                 // User signed in successfully.
                 const user = result.user;
                 console.log("user signed in!!!", JSON.stringify(user));
